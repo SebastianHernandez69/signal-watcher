@@ -5,7 +5,11 @@ import { OpenAIService } from "./openai.service";
 
 export class AIServiceFactory {
     static create(): AIProvider {
-      const useRealAI = envs.nodeEnv === 'production' && envs.openaiApiKey;
+      const hasValidOpenAIKey = envs.openaiApiKey 
+        && envs.openaiApiKey !== '' 
+        && !envs.openaiApiKey.startsWith('sk-');
+
+      const useRealAI = envs.nodeEnv === 'production' && hasValidOpenAIKey;
       
       if (useRealAI) {
         return new OpenAIService();
