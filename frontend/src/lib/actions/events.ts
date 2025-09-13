@@ -38,11 +38,12 @@ export async function createEvent(
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dto),
     });
-    console.log('res',res)
+    
     if (res.status !== 201) throw new Error("Error creating event");
   
     
   } catch (error) {
+    console.error("Error creating event: ", error)
     return { error: "Error al crear el evento" };
   }
   
@@ -82,6 +83,7 @@ export async function simulateEvent(
     if (res.status !== 201) throw new Error("Error simulating event");
 
   } catch (error) {
+    console.error("Error simulating event: ", error)
     return { error: "Error al simular el evento" };
   }
 

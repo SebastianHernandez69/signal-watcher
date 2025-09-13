@@ -46,6 +46,7 @@ export async function createWatchlist(
     if (res.status !== 201) throw new Error("Error creating watchlist");
     
   } catch (error) {
+    console.error("Error creating watchlist: ", error)
     return { error: "Error al crear la lista" };
   }
 
