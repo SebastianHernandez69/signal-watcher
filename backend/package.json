@@ -4,11 +4,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/server.js",
+    "start": "npm run db:migrate && node dist/server.js",
     "dev": "ts-node-dev src/server.ts",
     "test.openai": "ts-node src/test.openai.ts",
     "build": "tsc",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "postinstall": "prisma generate",
+    "db:migrate": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
