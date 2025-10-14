@@ -1,4 +1,4 @@
-# Prueba Técnica - Signal Watcher
+# Signal Watcher
 
 ## 📋 Requisitos
 - **Node.js** ≥ 18
